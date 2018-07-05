@@ -1,8 +1,8 @@
 <div fxLayout="column" fxLayoutAlign="start">
   <div fxLayout="row" fxLayoutAlign="end">
-    <button mat-icon-button [mat-dialog-close]="undefined">
-        <div class="close-icon">
-          <mat-icon>close</mat-icon>
+    <button disableRipple="true" mat-icon-button [mat-dialog-close]="undefined">
+        <div class="close-icon-container">
+          <mat-icon class="close-icon">close</mat-icon>
         </div>
       </button>
   </div>
@@ -46,6 +46,15 @@
     </div>
   </div>
   <mat-dialog-actions fxFlexAlign="center" fxFlexOffset="93px">
-    <button mat-raised-button color="primary" [mat-dialog-close]="entities">CONNECT</button>
+    <div class="connect-button-container">
+      <button
+        class="connect-button"
+        mat-raised-button
+        color="primary"
+        [mat-dialog-close]="entities"
+      >
+        CONNECT
+      </button>
+    </div>
   </mat-dialog-actions>
 </div>
