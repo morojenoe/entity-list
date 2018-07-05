@@ -27,7 +27,6 @@ export class AddEntitiesComponent implements OnInit {
       distinctUntilChanged(),
       switchMap((term: string) => this.entityService.searchEntities(term)),
     );
-    this.search('');
   }
 
   search(value: string): void {
