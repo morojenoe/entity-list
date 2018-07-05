@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { EntityService } from '../../services/entity.service';
+import { Observable } from 'rxjs/Observable';
+import { Entity } from '../../models/entity';
 
 @Component({
   selector: 'app-entity-list',
@@ -6,10 +9,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./entity-list.component.scss']
 })
 export class EntityListComponent implements OnInit {
+  entities: Observable<Entity[]>;
+  selectedEntities: Entity[];
 
-  constructor() { }
+  constructor(private entityService: EntityService) { }
 
   ngOnInit() {
+    this.entities = this.entityService.getEntities();
   }
-
 }

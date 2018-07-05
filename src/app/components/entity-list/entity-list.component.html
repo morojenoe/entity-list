@@ -1,3 +1,5 @@
-<p>
-  entity-list works!
-</p>
+<mat-list>
+  <mat-list-item *ngFor="let entity of entities | async">
+    {{entity}}
+  </mat-list-item>
+</mat-list>
