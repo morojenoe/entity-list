@@ -7,4 +7,9 @@ $app-warn:    mat-palette($mat-red);
 
 $app-theme: mat-light-theme($app-primary, $app-accent, $app-warn);
 
+$custom-background-color: #EBE8EF;
+$background: map-get($app-theme, background);
+$background: map_merge($background, (background: $custom-background-color));
+$app-theme: map_merge($app-theme, (background: $background));
+
 @include angular-material-theme($app-theme);

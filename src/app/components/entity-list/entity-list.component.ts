@@ -14,7 +14,7 @@ import { Entity } from '../../models/entity';
 export class EntityListComponent implements OnInit {
   entities: Entity[] = [];
 
-  constructor(private entityService: EntityService, public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
   }
