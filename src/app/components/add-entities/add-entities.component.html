@@ -15,8 +15,12 @@
     
     <ng-container *ngFor="let entity of entities$ | async; let i = index">
       <mat-divider *ngIf="i > 0"></mat-divider>
-      <mat-selection-list>
-        <mat-list-option checkboxPosition="before" >
+      <mat-selection-list (selectionChange)="changeSelection($event)">
+        <mat-list-option
+          [value]="entity"
+          [selected]="isSelected(entity.id)"
+          checkboxPosition="before"
+        >
           <app-entity [entity]="entity"></app-entity>
         </mat-list-option>
       </mat-selection-list>
@@ -24,5 +28,5 @@
   </mat-card>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-button [mat-dialog-close]="true">CONNECT</button>
+  <button mat-button [mat-dialog-close]="entities">CONNECT</button>
 </mat-dialog-actions>
