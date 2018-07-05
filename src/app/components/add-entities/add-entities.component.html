@@ -20,6 +20,7 @@
         >
           <mat-icon class="search-field__prefix" matPrefix>search</mat-icon>
           <input
+            cdkFocusInitial
             #searchBox
             id="search-box"
             (keyup)="search(searchBox.value)"
