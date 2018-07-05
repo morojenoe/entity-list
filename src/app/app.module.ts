@@ -15,11 +15,15 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { AppComponent } from './app.component';
 import { EntityListComponent } from './components/entity-list/entity-list.component';
 import { EntityService } from './services/entity.service';
+import { EntityComponent } from './components/entity/entity.component';
+import { AddEntitiesComponent } from './components/add-entities/add-entities.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EntityListComponent
+    EntityListComponent,
+    EntityComponent,
+    AddEntitiesComponent
   ],
   imports: [
     BrowserModule,

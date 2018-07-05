@@ -1,5 +1,15 @@
-<mat-list>
-  <mat-list-item *ngFor="let entity of entities | async">
-    {{entity}}
-  </mat-list-item>
-</mat-list>
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <button mat-button (click)="addEntitiesDialog()" *ngIf="selectedEntities.length === 0">
+        Connect entity
+      </button>
+    </mat-expansion-panel-header>
+
+    <mat-list>
+      <mat-list-item *ngFor="let entity of selectedEntities">
+        <app-entity [entity]="entity"></app-entity>
+      </mat-list-item>
+    </mat-list>
+  </mat-expansion-panel>
+</mat-accordion>
