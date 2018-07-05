@@ -19,6 +19,13 @@ export class EntityListComponent implements OnInit {
   ngOnInit() {
   }
 
+  removeEntity(entity: Entity) {
+    const index = this.entities.findIndex(e => e.id === entity.id);
+    if (index !== -1) {
+      this.entities.splice(index, 1);
+    }
+  }
+
   addEntitiesDialog() {
     const dialogRef = this.dialog.open(AddEntitiesComponent, {
       minWidth: '100%',
