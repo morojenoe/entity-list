@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatButtonModule } from '@angular/material/button';
@@ -28,6 +29,7 @@ import { AddEntitiesComponent } from './components/add-entities/add-entities.com
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FlexLayoutModule,
     MatExpansionModule,
     MatButtonModule,
     MatListModule,

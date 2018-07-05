@@ -21,7 +21,7 @@ export class EntityListComponent implements OnInit {
 
   addEntitiesDialog() {
     const dialogRef = this.dialog.open(AddEntitiesComponent, {
-      width: '100%',
+      minWidth: '100%',
       height: '100%',
       data: this.entities,
       autoFocus: true,

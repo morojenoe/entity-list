@@ -27,6 +27,7 @@ export class AddEntitiesComponent implements OnInit {
       distinctUntilChanged(),
       switchMap((term: string) => this.entityService.searchEntities(term)),
     );
+    this.search('');
   }
 
   search(value: string): void {
@@ -42,7 +43,6 @@ export class AddEntitiesComponent implements OnInit {
       this.entities.push(selectionListChange.option.value);
     } else {
       const index = this.entities.findIndex(e => e.id === selectionListChange.option.value.id);
-      console.log(index);
       this.entities.splice(index, 1);
     }
   }

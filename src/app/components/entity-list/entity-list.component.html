@@ -1,16 +1,29 @@
-<mat-accordion>
-  <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      <button mat-button (click)="addEntitiesDialog()" *ngIf="entities.length === 0">
-        <mat-icon>add_circle</mat-icon>
-        Connect entity
-      </button>
-    </mat-expansion-panel-header>
+<div fxLayout="row" fxLayoutAlign="center center">
+  <mat-accordion fxFlex.gt-xs="400px">
+    <mat-expansion-panel [hideToggle]="entities.length === 0">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <div fxLayout="row" fxLayoutAlign="start center">
+            <button mat-icon-button (click)="addEntitiesDialog()">
+              <mat-icon>add_circle</mat-icon>
+            </button>
+            <ng-container *ngIf="entities.length === 0">
+              Connect entity
+            </ng-container>
+            <ng-container *ngIf="entities.length > 0">
+              Entities connected ({{entities.length}})
+            </ng-container>
+          </div>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
 
-    <mat-list>
-      <mat-list-item *ngFor="let entity of entities">
-        <app-entity [entity]="entity"></app-entity>
-      </mat-list-item>
-    </mat-list>
-  </mat-expansion-panel>
-</mat-accordion>
+      <mat-list>
+        <div fxLayout="column" fxLayoutGap="20px">
+          <mat-list-item *ngFor="let entity of entities">
+            <app-entity [entity]="entity"></app-entity>
+          </mat-list-item>
+        </div>
+      </mat-list>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
