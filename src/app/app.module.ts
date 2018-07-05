@@ -10,7 +10,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-
+import { MatIconModule } from '@angular/material/icon';
 
 import { AppComponent } from './app.component';
 import { EntityListComponent } from './components/entity-list/entity-list.component';
@@ -36,6 +36,7 @@ import { AddEntitiesComponent } from './components/add-entities/add-entities.com
     MatDialogModule,
     MatInputModule,
     MatFormFieldModule,
+    MatIconModule,
   ],
   providers: [
     EntityService,
