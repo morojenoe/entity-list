@@ -21,7 +21,7 @@
         <div fxLayout="column" fxLayoutGap="20px">
           <mat-list-item *ngFor="let entity of entities">
             <div fxLayout="row" fxFlexFill>
-              <div fxFlex="grow">
+              <div fxFlex="grow" fxFlexOffset="25px">
                 <app-entity [entity]="entity"></app-entity>
               </div>
               <button fxFlex="none" mat-icon-button (click)="removeEntity(entity)">
