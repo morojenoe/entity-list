@@ -23,12 +23,13 @@ export class EntityListComponent implements OnInit {
     const dialogRef = this.dialog.open(AddEntitiesComponent, {
       minWidth: '100%',
       height: '100%',
-      data: this.entities,
-      autoFocus: true,
+      data: this.entities.slice(),
     });
 
     dialogRef.afterClosed().subscribe(entities => {
-      this.entities = entities;
+      if (entities) {
+        this.entities = entities;
+      }
     });
   }
 }

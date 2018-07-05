@@ -2,7 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA, MatSelectionListChange } from '@angular/material';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
-import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged, switchMap, startWith } from 'rxjs/operators';
 
 import { Entity } from '../../models/entity';
 import { EntityService } from '../../services/entity.service';
@@ -16,6 +16,7 @@ import { EntityService } from '../../services/entity.service';
 export class AddEntitiesComponent implements OnInit {
   entities$: Observable<Entity[]>;
   searchTerms = new Subject<string>();
+  searchTermsSubscription;
 
   constructor(@Inject(MAT_DIALOG_DATA) public entities: Entity[],
               public dialogRef: MatDialogRef<AddEntitiesComponent>,
@@ -23,6 +24,7 @@ export class AddEntitiesComponent implements OnInit {
 
   ngOnInit() {
     this.entities$ = this.searchTerms.pipe(
+      startWith(''),
       debounceTime(300),
       distinctUntilChanged(),
       switchMap((term: string) => this.entityService.searchEntities(term)),

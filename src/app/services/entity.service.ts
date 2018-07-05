@@ -18,8 +18,12 @@ export class EntityService {
     if (!searchStr.trim()) {
       return this.getEntities();
     }
+    const search = searchStr.toLowerCase();
     const foundEntities = ENTITIES.filter(
-      entity => (entity.name.search(searchStr) !== -1 || entity.type.search(searchStr) !== -1)
+      entity => (
+        entity.name.toLowerCase().search(search) !== -1 ||
+        entity.type.toLowerCase().search(search) !== -1
+      )
     );
     return of(foundEntities.slice(0, 5));
   }

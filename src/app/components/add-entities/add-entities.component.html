@@ -1,52 +1,51 @@
-<div fxLayout="column" fxLayoutAlign="start center">
-  <div fxLayout="row" fxLayoutAlign="center center">
-    <h4 class="mat-subheading-2">
-      2016 KPI:$15M Renewal Revenue (Strategic Goal)
-    </h4>
-    <button mat-icon-button>
-      <div class="close-icon">
-        <mat-icon>close</mat-icon>
-      </div>
-    </button>
-  </div>
-  <h1 mat-dialog-title>Add entities</h1>
-    <div fxLayout="row">
-      <div class="mat-elevation-z2" fxFlex.xs="100%" fxFlex.sm="600px" fxFlex.gt-sm="780px" >
-        <div class="search-field">
-          <mat-form-field
-            appearance="standard"
-            floatLabel="never"
-            fxFlexFill
-          >
-            <mat-icon class="search-field__prefix" matPrefix>search</mat-icon>
-            <input
-              #searchBox
-              id="search-box"
-              (keyup)="search(searchBox.value)"
-              matInput
-              placeholder="Search entity"
-            >
-            <mat-icon class="search-field__suffix" matSuffix>filter_list</mat-icon>
-          </mat-form-field>
+<div fxLayout="column" fxLayoutAlign="start">
+  <div fxLayout="row" fxLayoutAlign="end">
+    <button mat-icon-button [mat-dialog-close]="undefined">
+        <div class="close-icon">
+          <mat-icon>close</mat-icon>
         </div>
-        
-        <mat-selection-list (selectionChange)="changeSelection($event)">
-          <ng-container *ngFor="let entity of entities$ | async; let i = index">
-            <mat-divider *ngIf="i > 0"></mat-divider>
-            <div class="list-item-container">
-              <mat-list-option
-                [value]="entity"
-                [selected]="isSelected(entity.id)"
-                checkboxPosition="before"
-              >
-                <app-entity [entity]="entity"></app-entity>
-              </mat-list-option>
-            </div>
-          </ng-container>
-        </mat-selection-list>
+      </button>
+  </div>
+  <h4 fxFlexAlign="center" class="mat-subheading-2">
+    2016 KPI:$15M Renewal Revenue (Strategic Goal)
+  </h4>
+  <h1 fxFlexOffset="40px" fxLayoutAlign="center" class="mat-headline">Add entities</h1>
+  <div fxFlexOffset="40px" fxLayoutAlign="center" fxLayout="row">
+    <div class="mat-elevation-z2" fxFlex.xs="100%" fxFlex.sm="600px" fxFlex.gt-sm="780px" >
+      <div class="search-field">
+        <mat-form-field
+          appearance="standard"
+          floatLabel="never"
+          fxFlexFill
+        >
+          <mat-icon class="search-field__prefix" matPrefix>search</mat-icon>
+          <input
+            #searchBox
+            id="search-box"
+            (keyup)="search(searchBox.value)"
+            matInput
+            placeholder="Search entity"
+          >
+          <mat-icon class="search-field__suffix" matSuffix>filter_list</mat-icon>
+        </mat-form-field>
       </div>
+      <mat-selection-list (selectionChange)="changeSelection($event)">
+        <ng-container *ngFor="let entity of entities$ | async; let i = index">
+          <mat-divider *ngIf="i > 0"></mat-divider>
+          <div class="list-item-container">
+            <mat-list-option
+              [value]="entity"
+              [selected]="isSelected(entity.id)"
+              checkboxPosition="before"
+            >
+              <app-entity [entity]="entity"></app-entity>
+            </mat-list-option>
+          </div>
+        </ng-container>
+      </mat-selection-list>
     </div>
-  <mat-dialog-actions fxFlexOffset="93px">
+  </div>
+  <mat-dialog-actions fxFlexAlign="center" fxFlexOffset="93px">
     <button mat-raised-button color="primary" [mat-dialog-close]="entities">CONNECT</button>
   </mat-dialog-actions>
 </div>
