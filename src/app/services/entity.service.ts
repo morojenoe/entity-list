@@ -15,6 +15,9 @@ export class EntityService {
   }
 
   searchEntities(searchStr: string): Observable<Entity[]> {
+    if (!searchStr.trim()) {
+      return this.getEntities();
+    }
     const foundEntities = ENTITIES.filter(
       entity => (entity.name.search(searchStr) !== -1 || entity.type.search(searchStr) !== -1)
     );

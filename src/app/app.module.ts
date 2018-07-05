@@ -38,6 +38,9 @@ import { AddEntitiesComponent } from './components/add-entities/add-entities.com
     MatFormFieldModule,
     MatIconModule,
   ],
+  entryComponents: [
+    AddEntitiesComponent,
+  ],
   providers: [
     EntityService,
   ],
